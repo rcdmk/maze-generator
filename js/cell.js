@@ -15,6 +15,15 @@ class Cell {
     show() {
         noFill();
         stroke(255);
-        rect(this.x * this.size, this.y * this.size, this.size, this.size);
+
+        const left = this.x * this.size;
+        const top = this.y * this.size;
+        const right = left + this.size;
+        const bottom = top + this.size;
+
+        if (this.walls.top) line(left, top, right, top);
+        if (this.walls.right) line(right, top, right, bottom);
+        if (this.walls.bottom) line(right, bottom, left, bottom);
+        if (this.walls.left) line(left, bottom, left, top);
     }
 }
