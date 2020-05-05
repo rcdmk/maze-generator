@@ -32,6 +32,7 @@ function update() {
 
     current.active = false;
     current = stack.pop();
+    current.active = true;
 
     const neighbours = [];
 
