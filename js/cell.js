@@ -1,4 +1,10 @@
 class Cell {
+    x = 0;
+    y = 0;
+    size = 0;
+    active = false;
+    visited = false;
+
     walls = {
         top: true,
         right: true,
@@ -25,5 +31,16 @@ class Cell {
         if (this.walls.right) line(right, top, right, bottom);
         if (this.walls.bottom) line(right, bottom, left, bottom);
         if (this.walls.left) line(left, bottom, left, top);
+
+        if (this.active || this.visited) {
+            if (this.active) {
+                fill(255, 45, 45, 100);
+            } else {
+                fill(255, 255, 255, 100);
+            }
+
+            noStroke();
+            rect(left, top, this.size, this.size);
+        }
     }
 }
