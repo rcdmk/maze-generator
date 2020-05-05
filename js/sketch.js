@@ -3,20 +3,22 @@ const cols = 10;
 const rows = 10;
 const width = cols * cellSize;
 const height = rows * cellSize;
-const totalCells = cols * rows;
 
-const cells = new Array(totalCells);
+const cells = new Array(rows);
 
 function setup() {
     createCanvas(width, height);
 
-    for (let i = 0; i < totalCells; i++) {
-        cells[i] = new Cell(i % cols, Math.floor(i / rows), cellSize);
+    for (let y = 0; y < rows; y++) {
+        cells[y] = new Array(cols);
+        for (let x = 0; x < cols; x++) {
+            cells[y][x] = new Cell(x, y, cellSize);
+        }
     }
 }
 
 function draw() {
     background(35);
 
-    cells.forEach((cell) => cell.show());
+    cells.forEach(row => row.forEach(cell => cell.show()));
 }
