@@ -1,0 +1,11 @@
+{
+  "name": "maze-generator",
+  "version": "1.0.0",
+  "main": "index.html",
+  "repository": "https://github.com/rcdmk/maze-generator",
+  "author": "RCDMK <rcdmk@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "p5": "^1.0.0"
+  }
+}
