@@ -3,6 +3,7 @@ class Cell {
     y = 0;
     size = 0;
     active = false;
+    selected = false;
     visited = false;
 
     walls = {
@@ -40,6 +41,12 @@ class Cell {
             }
 
             noStroke();
+            rect(left, top, this.size, this.size);
+        }
+
+        if (this.selected) {
+            noStroke();
+            fill(0, 255, 0, 200);
             rect(left, top, this.size, this.size);
         }
     }

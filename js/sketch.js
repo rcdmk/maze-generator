@@ -5,13 +5,13 @@ const width = cols * cellSize;
 const height = rows * cellSize;
 
 const cells = new Array(rows);
-let current;
+let current, selected;
 let stack = [];
-
+let mazeComplete = false;
 
 function setup() {
     createCanvas(width, height);
-    frameRate(10);
+    //frameRate(10);
 
     for (let y = 0; y < rows; y++) {
         cells[y] = new Array(cols);
@@ -27,6 +27,7 @@ function setup() {
 
 function update() {
     if (stack.length == 0) {
+        mazeComplete = true;
         return;
     }
 
@@ -94,4 +95,25 @@ function draw() {
     background(35);
 
     cells.forEach(row => row.forEach(cell => cell.show()));
+
+    if (mazeComplete) {
+        textAlign(CENTER, CENTER);
+        textSize(cellSize);
+        fill(255, 255, 255, 100);
+        text("CLICK TO MOVE", width / 2, height/2);
+    }
+}
+
+function mousePressed() {
+    if (!mazeComplete) return;
+
+    const x = Math.floor(mouseX / cellSize);
+    const y = Math.floor(mouseY / cellSize);
+
+    if (x >= cols || y >= rows) return;
+
+    if (selected) selected.selected = false;
+
+    selected = cells[y][x];
+    selected.selected = true;
 }
