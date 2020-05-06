@@ -1,10 +1,10 @@
 # Maze Generator
 
-Implementation of a maze generation alghorithm and maze walking with pathfinding in JavaScript, using p5.js lib for drawing.
+Implementation of a maze generation algorithm and maze walking with pathfinding in JavaScript, using p5.js lib for drawing.
 
-## Alghorithms
+## Algorithms
 
-The choosen alghorithm for maze generation is iterative depth-first search (DFS) and it is composed of the following steps:
+The choosen algorithm for maze generation is iterative depth-first search (DFS) and it is composed of the following steps:
 
 1. Choose the initial cell, mark it as visited and push it to the stack
 2. While the stack is not empty
@@ -15,7 +15,7 @@ The choosen alghorithm for maze generation is iterative depth-first search (DFS)
       3. Remove the wall between the current cell and the chosen cell
       4. Mark the chosen cell as visited and push it to the stack
 
-Pathfinding is done using simplified A* alghorithm, with breadth-first search (BFS) and simple heuristics based on path length:
+Pathfinding is done using simplified A* algorithm, with breadth-first search (BFS) and simple heuristics based on path length:
 
 1. Set the cost for all cells as '+Infinity'
 2. Create a queue for cells to process
